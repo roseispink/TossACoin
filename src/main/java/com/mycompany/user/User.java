@@ -1,5 +1,7 @@
 package com.mycompany.user;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,7 +23,8 @@ public class User {
     @Column(length = 45, nullable = false, name = "last_name")
     private String lastName;
 
-    private boolean enabled;
+    @ColumnDefault("false")
+    private boolean blocked;
 
     public Integer getId() {
         return id;
@@ -75,11 +78,11 @@ public class User {
     }
 
 
-    public boolean isEnabled() {
-        return enabled;
+    public boolean isBlocked() {
+        return blocked;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 }

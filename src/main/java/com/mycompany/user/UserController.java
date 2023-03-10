@@ -22,11 +22,11 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/users/new")
+    @GetMapping("/register")
     public String showNewForm(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("pageTitle", "Add New User");
-        return "user_form";
+        model.addAttribute("pageTitle", "Register");
+        return "register";
     }
 
     @PostMapping("/users/save")
@@ -43,18 +43,18 @@ public class UserController {
             model.addAttribute("user", user);
             model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
 
-            return "user_form";
+            return "register";
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
             return "redirect:/users";
         }
     }
 
-    @GetMapping("/users/delete/{id}")
-    public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
+    @GetMapping("/users/blocked/{id}")
+    public String blockedUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
         try {
-            service.delete(id);
-            ra.addFlashAttribute("message", "The user ID " + id + " has been deleted.");
+            service.blocked(id);
+            ra.addFlashAttribute("message", "The user ID " + id + " has been blocked.");
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
         }
