@@ -2,8 +2,10 @@ import { paths } from "@utils/paths";
 import { ReactElement, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { LandingPage } from "./LandingPage/LandingPage";
+import { SignUpPage } from "./SignUpPage/SignUpPage";
+
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
-const LandingPage = lazy(() => import("./LandingPage/LandingPage"));
 
 export const Router = (): ReactElement => {
   return (
@@ -11,6 +13,7 @@ export const Router = (): ReactElement => {
       <Routes>
         <Route element={<ContentWrapper />}>
           <Route element={<LandingPage />} path={paths.landingPage} />
+          <Route element={<SignUpPage />} path={paths.profile} />
         </Route>
       </Routes>
     </BrowserRouter>
