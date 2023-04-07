@@ -8,9 +8,10 @@ import {
 } from "@chakra-ui/react";
 import { TopBar } from "@components/TopBar/TopBar";
 import { ReactElement } from "react";
+import { TopBar } from "@components/TopBar/TopBar";
 import lp from "./assets/lp.png";
 
-const LandingPage = (): ReactElement => {
+export const LandingPage = (): ReactElement => {
   return (
     <>
       <TopBar />
@@ -71,4 +72,3 @@ const LandingPage = (): ReactElement => {
     </>
   );
 };
-export default LandingPage;
