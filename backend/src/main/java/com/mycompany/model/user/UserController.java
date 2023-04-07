@@ -23,6 +23,10 @@ public class UserController {
         User user = userRepository.getUserByEmail(authentication.getName());
         return user.getBasicInfo();
     }
+    @GetMapping("/login")
+    String login(){
+       return "login";
+    }
 
     @GetMapping("/myfundraising")
     String getMyFund(Authentication authentication){

@@ -29,7 +29,6 @@ public class User {
     private String pesel;
     private String bankNumber;
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("USER")
     private UserRole role;
     @ColumnDefault("false")
     private boolean blocked;

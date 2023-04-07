@@ -14,7 +14,7 @@ insert into category (name) values ('koń');
 insert into category (name) values ('małe zwierze');
 insert into category (name) values ('jedzenie');
 insert into category (name) values ('lekarstwa');
-insert into category (name) values ('opercja');
+insert into category (name) values ('operacja');
 insert into category (name) values ('sprzęt');
 
 --zbiorki;
