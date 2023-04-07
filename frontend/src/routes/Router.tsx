@@ -1,5 +1,5 @@
 import { paths } from "@utils/paths";
-import { ReactElement, lazy } from "react";
+import { lazy, ReactElement, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { LandingPage } from "./LandingPage/LandingPage";

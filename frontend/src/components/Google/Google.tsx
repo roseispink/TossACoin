@@ -3,10 +3,10 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { ReactElement } from "react";
 
 export const Google = (): ReactElement => {
-  /*
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
-  });*/
+  });
+
   return (
     <Button
       alignItems="center"
@@ -16,8 +16,8 @@ export const Google = (): ReactElement => {
       fontSize="md"
       h="40px"
       justifyContent="center"
-      /*onClick={() => login()}
-       */
+      onClick={() => login()}
+
       w="40px"
     >
       G

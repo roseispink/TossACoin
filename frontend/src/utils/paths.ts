@@ -3,4 +3,5 @@ export const paths = {
   collections: "/collections",
   about: "/about",
   profile: "/profile",
+  signIn: "/signIn",
 };
