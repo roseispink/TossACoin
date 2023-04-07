@@ -34,6 +34,15 @@ public class User {
     @ColumnDefault("false")
     private boolean blocked;
 
+
+    public String getBasicInfo(){
+        return "{\n\t" +
+                "\"role\": \""+ this.role+"\"\n\t"+
+                "\"email\": \""+ this.email+"\"\n\t"+
+                "\"name\": \""+ this.name+"\"\n" +
+                "}";
+    }
+
     public Long getId() {
         return id;
     }
