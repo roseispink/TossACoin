@@ -1,7 +1,8 @@
 import { extendTheme } from "@chakra-ui/react";
+import { Button } from "./components/Button";
 
 export const rawTheme = {
-  components: {},
+  components: { Button },
   styles: {
     global: {
       body: {
@@ -20,7 +21,7 @@ export const rawTheme = {
       100: "#FF889A",
       200: "#FF6B80",
       300: "#FF4C67",
-      400: "#E2294F",
+      500: "#E2294F",
     },
     dark: {
       100: "#A1A2A2",

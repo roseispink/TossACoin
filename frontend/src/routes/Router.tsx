@@ -6,6 +6,7 @@ const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignIn = lazy(() => import("./SignIn/SignIn"));
 const Protected = lazy(() => import("./Protected/Protected"));
 const LandingPage = lazy(() => import("./LandingPage/LandingPage"));
+const CollectionPage = lazy(() => import("./CollectionPage/CollectionPage"));
 
 export const Router = (): ReactElement => {
   return (
@@ -26,6 +27,14 @@ export const Router = (): ReactElement => {
             </Suspense>
           }
           path={paths.landingPage}
+        />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <CollectionPage />
+            </Suspense>
+          }
+          path={"/collection"}
         />
         {/* Collections
           AboutUs */}
