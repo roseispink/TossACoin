@@ -6,6 +6,7 @@ export const Google = (): ReactElement => {
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => console.log(tokenResponse),
   });
+
   return (
     <Button
       alignItems="center"
@@ -16,6 +17,7 @@ export const Google = (): ReactElement => {
       h="40px"
       justifyContent="center"
       onClick={() => login()}
+
       w="40px"
     >
       G

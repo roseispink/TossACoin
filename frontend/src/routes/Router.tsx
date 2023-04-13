@@ -1,11 +1,11 @@
 import { paths } from "@utils/paths";
 import { lazy, ReactElement, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LandingPage } from "./LandingPage/LandingPage";
 
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignIn = lazy(() => import("./SignIn/SignIn"));
 const Protected = lazy(() => import("./Protected/Protected"));
-const LandingPage = lazy(() => import("./LandingPage/LandingPage"));
 const CollectionPage = lazy(() => import("./CollectionPage/CollectionPage"));
 
 export const Router = (): ReactElement => {
