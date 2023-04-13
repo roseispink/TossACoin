@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { TopBar } from "@components/TopBar/TopBar";
 import { ReactElement } from "react";
-import { TopBar } from "@components/TopBar/TopBar";
 import lp from "./assets/lp.png";
 
 export const LandingPage = (): ReactElement => {

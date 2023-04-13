@@ -63,19 +63,21 @@ export const SignUpPage = (): ReactElement => {
           <Text fontSize="2xl" fontWeight="regular" maxW="96">
             To check out your collections
           </Text>
-          <Button
-            bg="green.100"
-            boxShadow="md"
-            fontSize="2xl"
-            fontWeight="semibold"
-            h="fit-content"
-            px="16"
-            py="4"
-            textColor="white"
-            w="fit-content"
-          >
-            <Text>Sign In</Text>
-          </Button>
+          <Link to={paths.signIn}>
+            <Button
+              bg="green.100"
+              boxShadow="md"
+              fontSize="2xl"
+              fontWeight="semibold"
+              h="fit-content"
+              px="16"
+              py="4"
+              textColor="white"
+              w="fit-content"
+            >
+              <Text>Sign In</Text>
+            </Button>
+          </Link>
         </Flex>
         <Flex
           alignItems="center"

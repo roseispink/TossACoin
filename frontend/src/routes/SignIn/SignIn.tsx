@@ -9,7 +9,7 @@ import { ReactElement } from "react";
 import { Link, Navigate } from "react-router-dom";
 import bg from "./assets/bg.svg";
 
-const SignIn = (): ReactElement => {
+export const SignIn = (): ReactElement => {
   const status = useSessionStatus();
   const anonService = useAnonService();
   const { mutate } = useMutation(anonService.signIn);
@@ -124,23 +124,23 @@ const SignIn = (): ReactElement => {
           <Text fontSize="2xl" fontWeight="regular" maxW="96">
             Create an account to start collecting money from around the world
           </Text>
-          <Button
-            bg="green.100"
-            boxShadow="md"
-            fontSize="2xl"
-            fontWeight="semibold"
-            h="fit-content"
-            px="16"
-            py="4"
-            textColor="white"
-            w="fit-content"
-          >
-            <Text>Sign Up</Text>
-          </Button>
+          <Link to={paths.profile}>
+            <Button
+              bg="green.100"
+              boxShadow="md"
+              fontSize="2xl"
+              fontWeight="semibold"
+              h="fit-content"
+              px="16"
+              py="4"
+              textColor="white"
+              w="fit-content"
+            >
+              <Text>Sign Up</Text>
+            </Button>
+          </Link>
         </Flex>
       </Flex>
     </>
   );
 };
-
-export default SignIn;

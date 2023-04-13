@@ -4,4 +4,5 @@ export const paths = {
   about: "/about",
   profile: "/profile",
   signIn: "/signIn",
+  notFound: "/notFound"
 };
