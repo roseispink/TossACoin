@@ -1,6 +1,4 @@
 package com.mycompany;
-import com.mycompany.model.user.CustomerOAuth2Service;
-import com.mycompany.model.user.OAuth2SuccessHandler;
 import com.mycompany.model.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 
@@ -21,9 +18,8 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private CustomerOAuth2Service oAuth2Service;
-    @Autowired
     private AuthenticationEntryPoint entryPoint;
+
     @Bean
     public UserDetailsService userDetailsService(){
         return new UserDetailsServiceImpl();
@@ -52,12 +48,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/home").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
-                .and()
-                .oauth2Login()
                 .and()
                 .httpBasic()
                 .authenticationEntryPoint(entryPoint)
+                .and()
+                    .oauth2Login()
                 .and()
                 .logout().permitAll()
                 .and()

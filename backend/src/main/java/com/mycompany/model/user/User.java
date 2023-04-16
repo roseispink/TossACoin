@@ -21,6 +21,7 @@ public class User {
     private Set<Fundraising> fundraisingIds;
     private String name;
     private String surname;
+    @Column(unique = true)
     private String email;
     private String phoneNumber;
     private String password;
