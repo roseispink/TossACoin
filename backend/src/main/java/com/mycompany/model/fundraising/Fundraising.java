@@ -20,12 +20,11 @@ public class Fundraising {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "OwnerID")
+    @JoinColumn(name = "Owner_ID")
     private User owner;
 
-    @OneToMany
-    @Column(name = "CategoryID")
-    private List<Category> category;
+    @Column(name = "Category_ID")
+    private Long category;
 
     @Column(name = "Goal")
     private int goal;
@@ -83,11 +82,11 @@ public class Fundraising {
         this.owner = owner;
     }
 
-    public List<Category> getCategory() {
+    public Long getCategory() {
         return category;
     }
 
-    public void setCategory(List<Category> category) {
+    public void setCategory(Long category) {
         this.category = category;
     }
 
