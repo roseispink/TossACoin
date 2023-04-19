@@ -22,23 +22,23 @@ public class UserController {
 
     @GetMapping("/myaccount")
     String getMe(Authentication authentication){
-        User user = userRepository.getUserByEmail(authentication.getName());
+        JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
+        String email = jsonObject.getJSONObject("attributes").getString("email");
+        User user = userRepository.getUserByEmail(email);
         return user.getBasicInfo();
     }
 
-    @GetMapping("/login/oauth2")
+    @GetMapping("/login")
     public Object welcome(Authentication authentication){
-        System.out.println(authentication.getPrincipal());
-
         JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
-        String fullName = jsonObject.getJSONObject("attributes").getString("name");
+        String email = jsonObject.getJSONObject("attributes").getString("email");
+
+        if(userRepository.existsByEmail(email))
+            return authentication.getPrincipal();
 
         User user = new User();
-
-        user.setName(fullName.split(" ")[0]);
-        user.setSurname(fullName.split(" ")[1]);
-        user.setEmail(jsonObject.getJSONObject("attributes").getString("email"));
-
+        user.setEmail(email);
+        user.setRole(UserRole.USER);
         userRepository.save(user);
 
         return authentication.getPrincipal();
