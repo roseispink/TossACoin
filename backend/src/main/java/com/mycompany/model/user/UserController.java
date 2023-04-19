@@ -21,10 +21,15 @@ public class UserController {
 
 
     @GetMapping("/myaccount")
-    String getMe(Authentication authentication){
-        JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
-        String email = jsonObject.getJSONObject("attributes").getString("email");
-        User user = userRepository.getUserByEmail(email);
+    Object getMe(Authentication authentication){
+        User user = userRepository.getUserByEmail(authentication.getName());
+        if(user==null)
+        {
+            JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
+            String email = jsonObject.getJSONObject("attributes").getString("email");
+            user = userRepository.getUserByEmail(email);
+        }
+
         return user.getBasicInfo();
     }
 
