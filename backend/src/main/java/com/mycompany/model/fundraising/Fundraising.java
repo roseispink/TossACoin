@@ -20,10 +20,10 @@ public class Fundraising {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "Owner_ID")
+    @JoinColumn(name = "OwnerID")
     private User owner;
 
-    @Column(name = "Category_ID")
+    @Column(name = "CategoryID")
     private Long category;
 
     @Column(name = "Goal")
