@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.json.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 import java.util.List;
@@ -42,12 +43,12 @@ public class UserController {
 
     @GetMapping("/login")
     @ResponseBody
-    public Object welcome(Authentication authentication){
+    public RedirectView welcome(Authentication authentication){
         JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
         String email = jsonObject.getJSONObject("attributes").getString("email");
 
         if(userRepository.existsByEmail(email))
-            return authentication.getPrincipal();
+            return new RedirectView("/home");
 
         User user = new User();
         user.setEmail(email);
@@ -56,7 +57,7 @@ public class UserController {
 
         userRepository.save(user);
 
-        return authentication.getPrincipal();
+        return new RedirectView("/home");
     }
 
 
