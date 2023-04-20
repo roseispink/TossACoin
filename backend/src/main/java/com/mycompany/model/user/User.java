@@ -31,12 +31,18 @@ public class User {
     private String bankNumber;
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    @Enumerated(EnumType.STRING)
+    private LoginType loginType;
+
     @ColumnDefault("false")
     private boolean blocked;
 
+
     public String getBasicInfo(){
         return "{\n\t" +
-                "\"role\": \""+ this.role+"\"\n\t"+
+                "\"role\": \""+role+"\"\n\t"+
+                "\"loginType\": \""+ this.loginType+"\"\n\t"+
                 "\"email\": \""+ this.email+"\"\n\t"+
                 "\"name\": \""+ this.name+"\"\n" +
                 "}";

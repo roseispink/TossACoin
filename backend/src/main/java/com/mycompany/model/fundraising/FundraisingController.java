@@ -5,6 +5,7 @@ import com.mycompany.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -17,16 +18,16 @@ public class FundraisingController {
     FundraisingRepository fundraisingRepository;
 
     @GetMapping("/home")
-    String getAllFunds(){
+    List<String> getAllFunds(){
         List<Fundraising> funds = fundraisingRepository.findAllByAvailableIsTrueOrderByFundraisingStart();
-        StringBuilder fundBasicInfo = new StringBuilder();
+        List<String> fundBasicInfo = new ArrayList<>();
 
         for (Fundraising fund:
              funds) {
-            fundBasicInfo.append(fund.getBasicInfo()).append(",\n");
+            fundBasicInfo.add(fund.getBasicInfo());
         }
 
-        return fundBasicInfo.toString();
+        return fundBasicInfo;
     }
 
 

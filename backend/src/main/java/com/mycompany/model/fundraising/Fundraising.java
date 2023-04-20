@@ -1,8 +1,8 @@
 package com.mycompany.model.fundraising;
 
+import com.mycompany.model.category.Category;
 import lombok.*;
 
-import com.mycompany.model.Category;
 import com.mycompany.model.user.User;
 
 import javax.persistence.*;
@@ -24,7 +24,7 @@ public class Fundraising {
     @JoinColumn(name = "OwnerID")
     private User owner;
 
-    @OneToMany
+    @ManyToMany
     @Column(name = "CategoryID")
     private List<Category> category;
 
@@ -57,15 +57,15 @@ public class Fundraising {
     private boolean available;
 
     public String getBasicInfo(){
-        return "{\n\t" +
-                "\"fundraising_start\": \""+ this.fundraisingStart+"\"\n\t"+
-                "\"fundraising_end\": \""+ this.fundraisingEnd+"\"\n\t"+
-                "\"title\": \""+ this.title+"\"\n\t"+
-                "\"collected_money\": \""+ this.collectedMoney+"\"\n\t"+
-                "\"goal\": \""+ this.goal+"\"\n\t"+
-                "\"image\": \""+ Arrays.toString(this.image) +"\"\n\t"+
-                "\"owner_name\": \""+ this.owner.getName()+"\"\n\t"+
-                "\"owner_surname\": \""+ this.owner.getSurname()+"\"\n"+
+        return "{"+
+                "fundraising_start:"+ this.fundraisingStart+
+                " fundraising_end:"+ this.fundraisingEnd+
+                " title:"+ this.title+
+                " collected_money:"+ this.collectedMoney+
+                " goal:"+ this.goal+
+                " image:"+ Arrays.toString(this.image) +
+                " owner_name"+ this.owner.getName()+
+                " owner_surname"+ this.owner.getSurname()+
                 "}";
     }
 

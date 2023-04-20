@@ -44,6 +44,8 @@ public class UserController {
         User user = new User();
         user.setEmail(email);
         user.setRole(UserRole.USER);
+        user.setLoginType(LoginType.OAUTH2);
+
         userRepository.save(user);
 
         return authentication.getPrincipal();
