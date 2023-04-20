@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.json.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController
@@ -18,11 +19,36 @@ public class UserController {
     @Autowired
     FundraisingRepository fundraisingRepository;
 
+
     @GetMapping("/myaccount")
-    String getMe(Authentication authentication){
+    Object getMe(Authentication authentication){
         User user = userRepository.getUserByEmail(authentication.getName());
+        if(user==null)
+        {
+            JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
+            String email = jsonObject.getJSONObject("attributes").getString("email");
+            user = userRepository.getUserByEmail(email);
+        }
+
         return user.getBasicInfo();
     }
+
+    @GetMapping("/login")
+    public Object welcome(Authentication authentication){
+        JSONObject jsonObject = new JSONObject(authentication.getPrincipal());
+        String email = jsonObject.getJSONObject("attributes").getString("email");
+
+        if(userRepository.existsByEmail(email))
+            return authentication.getPrincipal();
+
+        User user = new User();
+        user.setEmail(email);
+        user.setRole(UserRole.USER);
+        userRepository.save(user);
+
+        return authentication.getPrincipal();
+    }
+
 
     @GetMapping("/myfundraising")
     String getMyFund(Authentication authentication){
@@ -37,6 +63,5 @@ public class UserController {
         return fundBasicInfo.toString();
 
     }
-
 
 }

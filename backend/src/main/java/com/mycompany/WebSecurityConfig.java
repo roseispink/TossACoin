@@ -19,6 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthenticationEntryPoint entryPoint;
+
     @Bean
     public UserDetailsService userDetailsService(){
         return new UserDetailsServiceImpl();
@@ -54,10 +55,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .authenticationEntryPoint(entryPoint)
                 .and()
+                    .oauth2Login()
+                .and()
                 .logout().permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403");
     }
+
+
+
+
+
 
 
 }

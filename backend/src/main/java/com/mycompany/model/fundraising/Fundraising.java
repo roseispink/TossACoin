@@ -1,7 +1,7 @@
 package com.mycompany.model.fundraising;
 
+import lombok.*;
 
-//import lombok.*;
 import com.mycompany.model.Category;
 import com.mycompany.model.user.User;
 
@@ -10,8 +10,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-//@Getter
-//@Setter
+
+@Getter
+@Setter
 @Entity
 public class Fundraising {
     @Id
@@ -26,6 +27,7 @@ public class Fundraising {
     @OneToMany
     @Column(name = "CategoryID")
     private List<Category> category;
+
 
     @Column(name = "Goal")
     private int goal;
@@ -67,91 +69,4 @@ public class Fundraising {
                 "}";
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public List<Category> getCategory() {
-        return category;
-    }
-
-    public void setCategory(List<Category> category) {
-        this.category = category;
-    }
-
-    public int getGoal() {
-        return goal;
-    }
-
-    public void setGoal(int goal) {
-        this.goal = goal;
-    }
-
-    public int getCollectedMoney() {
-        return collectedMoney;
-    }
-
-    public void setCollectedMoney(int collectedMoney) {
-        this.collectedMoney = collectedMoney;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getFundraisingStart() {
-        return fundraisingStart;
-    }
-
-    public void setFundraisingStart(Date fundraisingStart) {
-        this.fundraisingStart = fundraisingStart;
-    }
-
-    public Date getFundraisingEnd() {
-        return fundraisingEnd;
-    }
-
-    public void setFundraisingEnd(Date fundraisingEnd) {
-        this.fundraisingEnd = fundraisingEnd;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
 }

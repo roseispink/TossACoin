@@ -1,12 +1,13 @@
 package com.mycompany.model.transaction;
 
+import lombok.*;
 import java.util.Date;
-//import lombok.*;
+
 
 import javax.persistence.*;
 
-//@Setter
-//@Getter
+@Setter
+@Getter
 @Entity
 public class Transaction {
     @Id
