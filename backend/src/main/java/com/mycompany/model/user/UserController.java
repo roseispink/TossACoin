@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.json.*;
 
+
 import java.util.List;
 
 @RestController
@@ -17,7 +18,6 @@ public class UserController {
     UserRepository userRepository;
     @Autowired
     FundraisingRepository fundraisingRepository;
-
 
 
     @GetMapping("/myaccount")
@@ -48,6 +48,7 @@ public class UserController {
 
         return authentication.getPrincipal();
     }
+
 
     @GetMapping("/myfundraising")
     String getMyFund(Authentication authentication){

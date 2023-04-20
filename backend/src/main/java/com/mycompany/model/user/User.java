@@ -40,6 +40,8 @@ public class User {
                 "\"email\": \""+ this.email+"\"\n\t"+
                 "\"name\": \""+ this.name+"\"\n" +
                 "}";
+
     }
+
 
 }

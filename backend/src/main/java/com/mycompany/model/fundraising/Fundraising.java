@@ -1,6 +1,7 @@
 package com.mycompany.model.fundraising;
 
 import lombok.*;
+
 import com.mycompany.model.Category;
 import com.mycompany.model.user.User;
 
@@ -8,7 +9,7 @@ import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 
 @Getter
 @Setter
@@ -25,7 +26,8 @@ public class Fundraising {
 
     @OneToMany
     @Column(name = "CategoryID")
-    private Set<Category> category;
+    private List<Category> category;
+
 
     @Column(name = "Goal")
     private int goal;
@@ -66,4 +68,5 @@ public class Fundraising {
                 "\"owner_surname\": \""+ this.owner.getSurname()+"\"\n"+
                 "}";
     }
+
 }
