@@ -21,11 +21,11 @@ Projekt zakłada stworzenie w pełni funkcjonalnej strony internetowej umożliwi
 ![SignIn](https://user-images.githubusercontent.com/78410781/233456273-726783ef-a880-440c-a2eb-d0a78fa6fa7d.png)
 
 
-### Kolekcje
+### Zbiórki
 
 ![Collections](https://user-images.githubusercontent.com/78410781/233456496-c80b31ee-66bd-4d84-b63b-bff0bb550778.png)
 
 
-### Przykładowa strona kolekcji
+### Przykładowa strona zbiórki
 
 ![ExampleCollection](https://user-images.githubusercontent.com/78410781/233456553-3bdc60e5-15e0-4e33-bc16-5c1f13939c75.png)
