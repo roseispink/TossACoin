@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { TopBar } from "@components/TopBar/TopBar";
 import { ReactElement } from "react";
-import { TopBar } from "@components/TopBar/TopBar";
 import lp from "./assets/lp.png";
 
 export const LandingPage = (): ReactElement => {
@@ -34,7 +33,7 @@ export const LandingPage = (): ReactElement => {
           <Heading color="white">Create your collection</Heading>
           <Input
             _focusVisible={{
-              borderColor: "red.400",
+              borderColor: "red.500",
             }}
             bgColor="white"
             borderColor="dark.300"
@@ -46,7 +45,7 @@ export const LandingPage = (): ReactElement => {
           <NumberInput bgColor="white" borderRadius="lg" w="40">
             <NumberInputField
               _focusVisible={{
-                borderColor: "red.400",
+                borderColor: "red.500",
               }}
               borderColor="dark.300"
               placeholder="Amount"
@@ -56,7 +55,7 @@ export const LandingPage = (): ReactElement => {
             _hover={{
               bgColor: "red.300",
             }}
-            bg="red.400"
+            bg="red.500"
             border="1px"
             borderColor="dark.400"
             color="white"

@@ -25,7 +25,7 @@ export const TopBar = (): ReactElement => {
             fontWeight="semibold"
             gap="2"
           >
-            <Text color="red.400">Toss</Text>
+            <Text color="red.500">Toss</Text>
             <Text color="dark.400">A</Text>
             <Text color="green.100">Coin</Text>
           </Flex>

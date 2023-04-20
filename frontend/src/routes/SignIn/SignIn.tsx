@@ -38,7 +38,7 @@ const SignIn = (): ReactElement => {
           position="absolute"
           top="7"
         >
-          <Text color="red.400">Toss</Text>
+          <Text color="red.500">Toss</Text>
           <Text color="white">A</Text>
           <Text color="green.100">Coin</Text>
         </Flex>
