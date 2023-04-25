@@ -6,6 +6,7 @@ import {
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
+
 import { TopBar } from "@components/TopBar/TopBar";
 import { ReactElement } from "react";
 import lp from "./assets/lp.png";

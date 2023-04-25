@@ -1,23 +1,72 @@
 import { paths } from "@utils/paths";
 import { lazy, ReactElement, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import { LandingPage } from "./LandingPage/LandingPage";
-import { SignUpPage } from "./SignUpPage/SignUpPage";
-import { SignIn } from "./SignIn/SignIn";
-import { Collections } from "./Collections/Collections";
 
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
+const SignIn = lazy(() => import("./SignIn/SignIn"));
+const Protected = lazy(() => import("./Protected/Protected"));
+const CollectionPage = lazy(() => import("./CollectionPage/CollectionPage"));
+const Collections = lazy(() => import("./Collections/Collections"));
 
 export const Router = (): ReactElement => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<ContentWrapper />}>
-          <Route element={<LandingPage />} path={paths.landingPage} />
-          <Route element={<SignUpPage />} path={paths.profile} />
-          <Route element={<SignIn />} path={paths.signIn} />
-          <Route element={<Collections />} path={paths.collections} />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <SignIn />
+            </Suspense>
+          }
+          path={paths.signIn}
+        />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <LandingPage />
+            </Suspense>
+          }
+          path={paths.landingPage}
+        />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <CollectionPage />
+            </Suspense>
+          }
+          path={"/collection"}
+        />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <Collections />
+            </Suspense>
+          }
+          path={paths.collections}
+        />
+        {/* Collections
+          AboutUs */}
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <Protected />
+            </Suspense>
+          }
+        >
+          <Route element={<ContentWrapper />}>
+            {/* ----Temp--- */}
+            <Route
+              element={
+                <Suspense fallback={null}>
+                  <LandingPage />
+                </Suspense>
+              }
+              path={paths.profile}
+            />
+            {/* ---------- */}
+            {/* afterLogIn for example profile settings create collectons etc*/}
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
