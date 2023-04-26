@@ -7,6 +7,8 @@ import {
   useMemo,
 } from "react";
 
+export const urlBase = "https://localhost:3000";
+
 export type AuthService = {
   signOut: () => Promise<void>;
 };
@@ -117,8 +119,25 @@ export const SessionServiceProvider = ({ children }: Props): ReactElement => {
         return {
           status: "anon",
           value: {
-            signIn: (value) => {
-              console.log(value);
+            signIn: async (value) => {
+              const str = 'Basic ' + window.btoa(unescape(encodeURIComponent(`${value.email}:${value.password}`)));
+              const response = await fetch(
+                `${urlBase}/login`,
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: str
+                  },
+                }
+              );
+
+              const result = await response.json();
+              if (!response.ok || !result) {
+                throw new Error(result.error);
+              }
+
+
               localStorage.setItem("authorization", value.email);
               client.setQueryData<SessionServiceState>(getSessionQueryKey(), {
                 status: "auth",
