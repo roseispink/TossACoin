@@ -1,12 +1,11 @@
 import {
   Box,
-  Button,
   Flex,
   Heading,
   Highlight,
   Image,
   Progress,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { TopBar } from "@components/TopBar/TopBar";
 import { useCollectionService } from "@services/CollectionService";
@@ -15,6 +14,7 @@ import { paths } from "@utils/paths";
 import { ReactElement } from "react";
 import { Navigate, useSearchParams } from "react-router-dom";
 import { Bubble } from "./Bubble/Bubble";
+import { DonateModal } from "./DonateModal/DonateModal";
 import { ImgCarousel } from "./ImgCarousel/ImgCarousel";
 
 const CollectionPage = (): ReactElement => {
@@ -57,9 +57,7 @@ const CollectionPage = (): ReactElement => {
                 </Highlight>
               </Text>
               <Progress borderRadius="lg" colorScheme="red" h="9" value={20} />
-              <Button fontSize="3xl" h="16">
-                DONATE
-              </Button>
+              <DonateModal id={query.data.id} title={query.data.title} />
             </Flex>
           </Flex>
           <Flex flexDir="column" gap="8">

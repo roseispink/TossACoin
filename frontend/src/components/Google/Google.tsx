@@ -17,7 +17,6 @@ export const Google = (): ReactElement => {
       h="40px"
       justifyContent="center"
       onClick={() => login()}
-
       w="40px"
     >
       G

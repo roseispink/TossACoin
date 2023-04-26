@@ -44,3 +44,8 @@ export const getCollection = (id: string): Collection | undefined => {
   }
   return undefined;
 };
+
+export const getDefaultDonations = ():number[] => {
+  const defaultDonations = [5, 10, 20, 50, 100, 200]
+  return defaultDonations;
+}
