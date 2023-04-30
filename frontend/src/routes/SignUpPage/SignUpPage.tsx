@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import bg from "./assets/bg.svg";
 
-export const SignUpPage = (): ReactElement => {
+const SignUpPage = (): ReactElement => {
   /*const status = useSessionStatus();
   const anonService = useAnonService();
   const { mutate } = useMutation(anonService.signIn);*/
@@ -155,3 +155,5 @@ export const SignUpPage = (): ReactElement => {
     </>
   );
 };
+
+export default SignUpPage;

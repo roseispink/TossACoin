@@ -9,7 +9,7 @@ import { ReactElement } from "react";
 import { Link, Navigate } from "react-router-dom";
 import bg from "./assets/bg.svg";
 
-export const SignIn = (): ReactElement => {
+const SignIn = (): ReactElement => {
   const status = useSessionStatus();
   const anonService = useAnonService();
   const { mutate } = useMutation(anonService.signIn);
@@ -144,3 +144,4 @@ export const SignIn = (): ReactElement => {
     </>
   );
 };
+export default SignIn;

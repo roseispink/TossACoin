@@ -5,6 +5,7 @@ import { LandingPage } from "./LandingPage/LandingPage";
 
 const ContentWrapper = lazy(() => import("./ContentWrapper/ContentWrapper"));
 const SignIn = lazy(() => import("./SignIn/SignIn"));
+const SignUpPage = lazy(() => import("./SignUpPage/SignUpPage"));
 const Protected = lazy(() => import("./Protected/Protected"));
 const CollectionPage = lazy(() => import("./CollectionPage/CollectionPage"));
 const Collections = lazy(() => import("./Collections/Collections"));
@@ -20,6 +21,14 @@ export const Router = (): ReactElement => {
             </Suspense>
           }
           path={paths.signIn}
+        />
+        <Route
+          element={
+            <Suspense fallback={null}>
+              <SignUpPage />
+            </Suspense>
+          }
+          path={paths.signUp}
         />
         <Route
           element={

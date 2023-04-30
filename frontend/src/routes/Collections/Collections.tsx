@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { ReactElement } from "react";
 
-export const Collections = (): ReactElement => {
+const Collections = (): ReactElement => {
   const data: any = [
     { id: 1, title: "title1" },
     { id: 2, title: "title2" },
@@ -46,3 +46,4 @@ export const Collections = (): ReactElement => {
     </Flex>
   );
 };
+export default Collections;
